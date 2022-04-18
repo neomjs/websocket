@@ -1,6 +1,7 @@
-import Component    from '../../../node_modules/neo.mjs/src/component/Base.mjs';
-import TabContainer from '../../../node_modules/neo.mjs/src/tab/Container.mjs';
-import Viewport     from '../../../node_modules/neo.mjs/src/container/Viewport.mjs';
+import Component               from '../../../node_modules/neo.mjs/src/component/Base.mjs';
+import MainContainerController from './MainContainerController.mjs';
+import TabContainer            from '../../../node_modules/neo.mjs/src/tab/Container.mjs';
+import Viewport                from '../../../node_modules/neo.mjs/src/container/Viewport.mjs';
 
 /**
  * @class MyApp.view.MainContainer
@@ -8,9 +9,10 @@ import Viewport     from '../../../node_modules/neo.mjs/src/container/Viewport.m
  */
 class MainContainer extends Viewport {
     static getConfig() {return {
-        className: 'MyApp.view.MainContainer',
-        autoMount: true,
-        layout   : {ntype: 'fit'},
+        className : 'MyApp.view.MainContainer',
+        autoMount : true,
+        controller: MainContainerController,
+        layout    : {ntype: 'vbox'},
 
         items: [{
             module: TabContainer,
@@ -36,6 +38,13 @@ class MainContainer extends Viewport {
                     text   : 'Tab 2'
                 },
                 vdom: {innerHTML: 'Have fun creating something awesome!'}
+            }]
+        }, {
+            ntype: 'toolbar',
+            style: {margin: '20px'},
+            items: [{
+                text   : 'Send message',
+                handler: 'onSendMessage'
             }]
         }]
     }}
