@@ -1,5 +1,5 @@
 import ComponentController from '../../../node_modules/neo.mjs/src/controller/Component.mjs';
-import SocketConnection    from '../../../node_modules/neo.mjs/src/data/connection/Socket.mjs';
+import SocketConnection    from '../../../node_modules/neo.mjs/src/data/connection/WebSocket.mjs';
 
 /**
  * @class MyApp.view.MainContainerController
@@ -39,6 +39,15 @@ class MainContainerController extends ComponentController {
     onSendMessage(data) {
         this.connection.send({
             foo: 'bar'
+        });
+    }
+
+    /**
+     * @param {Object} data
+     */
+    onSendMessage2(data) {
+        this.connection.send({
+            hello: 'world'
         });
     }
 }

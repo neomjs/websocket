@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "express": "^4.17.3",
-        "neo.mjs": "^4.0.6",
+        "neo.mjs": "^4.0.7",
         "ws": "^8.5.0"
     }
 }

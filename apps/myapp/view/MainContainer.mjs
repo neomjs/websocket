@@ -45,6 +45,10 @@ class MainContainer extends Viewport {
             items: [{
                 text   : 'Send message',
                 handler: 'onSendMessage'
+            }, {
+                style  : {marginLeft: '10px'},
+                text   : 'Send another message',
+                handler: 'onSendMessage2'
             }]
         }]
     }}
