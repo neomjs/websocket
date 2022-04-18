@@ -13,9 +13,12 @@
         "create-app": "node ./node_modules/neo.mjs/buildScripts/createApp.mjs",
         "generate-docs-json": "node ./node_modules/neo.mjs/buildScripts/docs/jsdocx.mjs",
         "server-start": "webpack serve -c ./node_modules/neo.mjs/buildScripts/webpack/webpack.server.config.mjs --open",
+        "start-backend": "node ./backend/index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "neo.mjs": "^4.0.6"
+        "express": "^4.17.3",
+        "neo.mjs": "^4.0.6",
+        "ws": "^8.5.0"
     }
 }
