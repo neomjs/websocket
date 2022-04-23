@@ -37,8 +37,10 @@ class MainContainerController extends ComponentController {
      * @param {Object} data
      */
     onSendMessage(data) {
-        this.connection.sendMessage({
+        this.connection.promiseMessage({
             foo: 'bar'
+        }).then(response => {
+            console.log(response);
         });
     }
 

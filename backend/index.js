@@ -10,15 +10,26 @@ const wsServer = new WebSocketServer({ noServer: true });
 
 wsServer.on('connection', socket => {
     socket.on('message', message => {
+        let reply;
         const parsedMessage = JSON.parse(message);
 
         console.log(parsedMessage);
         console.log(UserService);
 
-        const reply = {
-            data   : UserService.getAll(),
-            success: true
-        };
+        if (parsedMessage.mId) {
+            reply = {
+                mId : parsedMessage.mId,
+                data: {
+                    data   : UserService.getAll(),
+                    success: true
+                }
+            };
+        } else {
+            reply = {
+                data   : UserService.getAll(),
+                success: true
+            };
+        }
 
         socket.send(JSON.stringify(reply));
     });
