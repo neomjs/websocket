@@ -7,7 +7,7 @@ import SocketConnection    from '../../../node_modules/neo.mjs/src/data/connecti
  */
 class MainContainerController extends ComponentController {
     /**
-     * @member {Neo.data.connection.Socket|null} connection=null
+     * @member {Neo.data.connection.WebSocket|null} connection=null
      */
     connection = null
 
@@ -37,7 +37,7 @@ class MainContainerController extends ComponentController {
      * @param {Object} data
      */
     onSendMessage(data) {
-        this.connection.send({
+        this.connection.sendMessage({
             foo: 'bar'
         });
     }
@@ -46,7 +46,7 @@ class MainContainerController extends ComponentController {
      * @param {Object} data
      */
     onSendMessage2(data) {
-        this.connection.send({
+        this.connection.sendMessage({
             hello: 'world'
         });
     }
