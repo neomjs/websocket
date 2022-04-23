@@ -1,5 +1,8 @@
-import express             from "express";
+import express             from 'express';
+import Neo                 from 'neo.mjs/src/Neo.mjs';
 import { WebSocketServer } from 'ws';
+
+console.log(Neo);
 
 const app = express();
 
