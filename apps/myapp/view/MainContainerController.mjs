@@ -48,9 +48,10 @@ class MainContainerController extends ComponentController {
      * @param {Object} data
      */
     onSendMessage2(data) {
-        this.connection.sendMessage({
-            hello: 'world'
-        });
+        // todo: connect the remotes API to the socket connection
+        MyApi.UserService.getAll().then(response => {
+            console.log(response);
+        })
     }
 }
 
