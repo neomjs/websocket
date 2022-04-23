@@ -10,6 +10,10 @@ wsServer.on('connection', socket => {
         const parsedMessage = JSON.parse(message);
 
         console.log(parsedMessage);
+
+        const reply = {success: true};
+
+        socket.send(JSON.stringify(reply));
     });
 });
 
