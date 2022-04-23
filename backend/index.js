@@ -1,8 +1,8 @@
-import express             from 'express';
 import Neo                 from 'neo.mjs/src/Neo.mjs';
+import * as core           from 'neo.mjs/src/core/_export.mjs';
+import express             from 'express';
+import UserService         from './UserService.mjs';
 import { WebSocketServer } from 'ws';
-
-console.log(Neo);
 
 const app = express();
 
@@ -13,8 +13,12 @@ wsServer.on('connection', socket => {
         const parsedMessage = JSON.parse(message);
 
         console.log(parsedMessage);
+        console.log(UserService);
 
-        const reply = {success: true};
+        const reply = {
+            data   : UserService.getAll(),
+            success: true
+        };
 
         socket.send(JSON.stringify(reply));
     });
