@@ -4,9 +4,8 @@ import express             from 'express';
 import UserService         from './UserService.mjs';
 import { WebSocketServer } from 'ws';
 
-const app = express();
-
-const wsServer = new WebSocketServer({ noServer: true });
+const app      = express(),
+      wsServer = new WebSocketServer({ noServer: true });
 
 wsServer.on('connection', socket => {
     socket.on('message', message => {
