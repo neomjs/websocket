@@ -27,6 +27,9 @@ class MainContainerController extends ComponentController {
         this.createSocketConnection()
     }
 
+    /**
+     *
+     */
     createSocketConnection() {
         this.connection = Neo.create(SocketConnection, {
             serverAddress: 'ws://localhost:3001'
