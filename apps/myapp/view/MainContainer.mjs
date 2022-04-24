@@ -43,12 +43,12 @@ class MainContainer extends Viewport {
             ntype: 'toolbar',
             style: {margin: '20px'},
             items: [{
-                text   : 'Send message',
-                handler: 'onSendMessage'
+                text   : 'Send WS message',
+                handler: 'onSendWsMessageButtonClick'
             }, {
                 style  : {marginLeft: '10px'},
-                text   : 'Send another message',
-                handler: 'onSendMessage2'
+                text   : 'UserService.getAll',
+                handler: 'onUserServiceGetAllButtonClick'
             }]
         }]
     }}

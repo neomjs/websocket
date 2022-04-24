@@ -34,21 +34,25 @@ class MainContainerController extends ComponentController {
     }
 
     /**
+     * Sending messages through a WebSocket inside the app worker
      * @param {Object} data
      */
-    onSendMessage(data) {
+    onSendWsMessageButtonClick(data) {
         this.connection.promiseMessage({
-            foo: 'bar'
+            action : 'rpc',
+            method : 'getAll',
+            params : [],
+            service: 'UserService'
         }).then(response => {
             console.log(response);
-        });
+        })
     }
 
     /**
+     * Sending messages through a WebSocket inside the data worker
      * @param {Object} data
      */
-    onSendMessage2(data) {
-        // todo: connect the remotes API to the socket connection
+    onUserServiceGetAllButtonClick(data) {
         MyApp.backend.UserService.getAll().then(response => {
             console.log(response);
         })
