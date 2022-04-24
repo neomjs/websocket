@@ -1,17 +1,17 @@
 import Base from 'neo.mjs/src/core/Base.mjs';
 
 /**
- * @class MyApp.UserService
+ * @class MyApp.backend.UserService
  * @extends Neo.core.Base
  * @singleton
  */
 class UserService extends Base {
     static getConfig() {return {
         /**
-         * @member {String} className='MyApp.UserService'
+         * @member {String} className='MyApp.backend.UserService'
          * @protected
          */
-        className: 'MyApp.UserService',
+        className: 'MyApp.backend.UserService',
         /**
          * @member {Boolean} singleton=true
          * @protected

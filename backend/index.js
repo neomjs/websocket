@@ -10,23 +10,25 @@ const wsServer = new WebSocketServer({ noServer: true });
 
 wsServer.on('connection', socket => {
     socket.on('message', message => {
-        let reply;
-        const parsedMessage = JSON.parse(message);
+        let parsedMessage = JSON.parse(message),
+            data          = parsedMessage.data,
+            service       = Neo.ns(`MyApp.backend.${data.service}`),
+            replyData     = service[data.method](...data.params),
+            reply;
 
-        console.log(parsedMessage);
-        console.log(UserService);
+        console.log(data);
 
         if (parsedMessage.mId) {
             reply = {
                 mId : parsedMessage.mId,
                 data: {
-                    data   : UserService.getAll(),
+                    data   : replyData,
                     success: true
                 }
             };
         } else {
             reply = {
-                data   : UserService.getAll(),
+                data   : replyData,
                 success: true
             };
         }
