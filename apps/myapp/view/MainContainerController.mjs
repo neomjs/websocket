@@ -49,7 +49,7 @@ class MainContainerController extends ComponentController {
      */
     onSendMessage2(data) {
         // todo: connect the remotes API to the socket connection
-        MyApi.UserService.getAll().then(response => {
+        MyApp.backend.UserService.getAll().then(response => {
             console.log(response);
         })
     }

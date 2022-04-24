@@ -1,5 +1,5 @@
 {
-    "namespace": "MyApi",
+    "namespace": "MyApp.backend",
     "type"     : "websocket",
     "url"      : "ws://localhost:3001",
 
