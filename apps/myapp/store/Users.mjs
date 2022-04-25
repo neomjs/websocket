@@ -13,6 +13,15 @@ class Users extends Store {
          */
         className: 'MyApp.store.Users',
         /**
+         * @member {Object} api
+         */
+        api: {
+            create : 'MyApp.backend.UserService.create',
+            destroy: 'MyApp.backend.UserService.destroy',
+            read   : 'MyApp.backend.UserService.read',
+            update : 'MyApp.backend.UserService.update'
+        },
+        /**
          * @member {Neo.data.Model} model=UserModel
          */
         model: UserModel,
