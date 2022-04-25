@@ -41,16 +41,24 @@ class MainContainerController extends ComponentController {
     }
 
     /**
+     * @param {Number} page
+     */
+    loadPage(page) {
+        MyApp.backend.UserService.read({page}).then(response => {
+            this.getReference('user-table').store.data = response.data;
+        })
+    }
+
+    /**
      * @param {Object} data
      */
     onNextPageButtonClick(data) {
         let me = this;
 
+        // todo: do not exceed the limit
         me.currentPage++;
 
-        MyApp.backend.UserService.read({page: me.currentPage}).then(response => {
-            this.getReference('user-table').store.data = response.data;
-        })
+        me.loadPage(me.currentPage);
     }
 
     /**
@@ -63,9 +71,7 @@ class MainContainerController extends ComponentController {
             me.currentPage--;
         }
 
-        MyApp.backend.UserService.read({page: me.currentPage}).then(response => {
-            this.getReference('user-table').store.data = response.data;
-        })
+        me.loadPage(me.currentPage);
     }
 
     /**
