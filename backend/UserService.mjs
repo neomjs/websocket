@@ -1,6 +1,12 @@
 import Base            from 'neo.mjs/src/core/Base.mjs';
 import ClassSystemUtil from 'neo.mjs/src/util/ClassSystem.mjs';
+import fs              from 'fs-extra';
+import path            from 'path';
 import UserStore       from './store/Users.mjs';
+
+const cwd         = process.cwd(),
+      requireJson = path => JSON.parse(fs.readFileSync((path))),
+      usersJson   = requireJson(path.resolve(cwd, 'backend/resources/users.json'));
 
 /**
  * @class MyApp.backend.UserService
@@ -35,7 +41,9 @@ class UserService extends Base {
     beforeSetStore(value, oldValue) {
         oldValue?.destroy();
 
-        return ClassSystemUtil.beforeSetInstance(value);
+        return ClassSystemUtil.beforeSetInstance(value, null, {
+            data: usersJson.data
+        });
     }
 
     /**
@@ -59,18 +67,7 @@ class UserService extends Base {
      * @returns {Object[]}
      */
     read(opts) {
-        return [
-            {"id" :   1, "firstname" : "Leonard",    "lastname" : "Robertson",   "isOnline" : false, "image" : "ai_images/000001.jpg"},
-            {"id" :   2, "firstname" : "Amelia",     "lastname" : "Gray",        "isOnline" : false, "image" : "ai_images/000002.jpg"},
-            {"id" :   3, "firstname" : "Stephen",    "lastname" : "McDonald",    "isOnline" : false, "image" : "ai_images/000003.jpg"},
-            {"id" :   4, "firstname" : "Lisa",       "lastname" : "Black",       "isOnline" : true,  "image" : "ai_images/000004.jpg"},
-            {"id" :   5, "firstname" : "Dorothy",    "lastname" : "Turner",      "isOnline" : false, "image" : "ai_images/000005.jpg"},
-            {"id" :   6, "firstname" : "Sonia",      "lastname" : "Mills",       "isOnline" : false, "image" : "ai_images/000006.jpg"},
-            {"id" :   7, "firstname" : "Amy",        "lastname" : "Cameron",     "isOnline" : false, "image" : "ai_images/000007.jpg"},
-            {"id" :   8, "firstname" : "Neil",       "lastname" : "Vance",       "isOnline" : false, "image" : "ai_images/000008.jpg"},
-            {"id" :   9, "firstname" : "Brandon",    "lastname" : "Tucker",      "isOnline" : false, "image" : "ai_images/000009.jpg"},
-            {"id" :  10, "firstname" : "Benjamin",   "lastname" : "McLean",      "isOnline" : false, "image" : "ai_images/000010.jpg"}
-        ];
+        return this.store.getRange(0, 30);
     }
 
     /**
