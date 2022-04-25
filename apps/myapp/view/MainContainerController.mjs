@@ -43,12 +43,11 @@ class MainContainerController extends ComponentController {
     onSendWsMessageButtonClick(data) {
         this.connection.promiseMessage({
             action : 'rpc',
-            method : 'getAll',
+            method : 'read',
             params : [],
             service: 'UserService'
         }).then(response => {
             console.log(response);
-            this.getReference('user-table').store.add(response.data);
         })
     }
 
@@ -57,9 +56,8 @@ class MainContainerController extends ComponentController {
      * @param {Object} data
      */
     onUserServiceGetAllButtonClick(data) {
-        MyApp.backend.UserService.getAll().then(response => {
+        MyApp.backend.UserService.read().then(response => {
             console.log(response);
-            this.getReference('user-table').store.add(response.data);
         })
     }
 }
