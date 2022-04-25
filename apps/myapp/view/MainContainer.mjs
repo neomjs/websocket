@@ -1,6 +1,4 @@
-import Component               from '../../../node_modules/neo.mjs/src/component/Base.mjs';
 import MainContainerController from './MainContainerController.mjs';
-import TabContainer            from '../../../node_modules/neo.mjs/src/tab/Container.mjs';
 import UserTableContainer      from './UserTableContainer.mjs';
 import Viewport                from '../../../node_modules/neo.mjs/src/container/Viewport.mjs';
 
@@ -14,14 +12,11 @@ class MainContainer extends Viewport {
         autoMount : true,
         controller: MainContainerController,
         layout    : {ntype: 'vbox', align: 'stretch'},
+        style     : {padding: '20px'},
 
         items: [{
-            module   : UserTableContainer,
-            reference: 'user-table',
-            style    : {flex: 'none', margin: '20px'}
-        }, {
             ntype: 'toolbar',
-            style: {margin: '20px'},
+            flex : 'none',
             items: [{
                 text   : 'Send WS message',
                 handler: 'onSendWsMessageButtonClick'
@@ -30,6 +25,11 @@ class MainContainer extends Viewport {
                 text   : 'UserService.getAll',
                 handler: 'onUserServiceGetAllButtonClick'
             }]
+        }, {
+            module   : UserTableContainer,
+            flex     : 1,
+            reference: 'user-table',
+            style    : {marginTop: '20px'}
         }]
     }}
 }
