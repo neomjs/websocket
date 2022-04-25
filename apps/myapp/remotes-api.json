@@ -11,7 +11,11 @@
         },
         "UserService": {
             "methods": {
-                "getAll": {}
+                "create" : {},
+                "destroy": {},
+                "getAll" : {},
+                "read"   : {"params":  [{"type":  "Object"}]},
+                "update" : {}
             }
         }
     }
