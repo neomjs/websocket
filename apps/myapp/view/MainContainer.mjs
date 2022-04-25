@@ -22,8 +22,8 @@ class MainContainer extends Viewport {
                 handler: 'onSendWsMessageButtonClick'
             }, {
                 style  : {marginLeft: '10px'},
-                text   : 'UserService.getAll',
-                handler: 'onUserServiceGetAllButtonClick'
+                text   : 'UserService.read',
+                handler: 'onUserServiceReadButtonClick'
             }]
         }, {
             module   : UserTableContainer,

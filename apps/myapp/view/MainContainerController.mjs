@@ -55,7 +55,7 @@ class MainContainerController extends ComponentController {
      * Sending messages through a WebSocket inside the data worker
      * @param {Object} data
      */
-    onUserServiceGetAllButtonClick(data) {
+    onUserServiceReadButtonClick(data) {
         MyApp.backend.UserService.read().then(response => {
             console.log(response);
         })
