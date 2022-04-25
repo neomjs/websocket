@@ -1,4 +1,6 @@
-import Base from 'neo.mjs/src/core/Base.mjs';
+import Base            from 'neo.mjs/src/core/Base.mjs';
+import ClassSystemUtil from 'neo.mjs/src/util/ClassSystem.mjs';
+import UserStore       from './store/Users.mjs';
 
 /**
  * @class MyApp.backend.UserService
@@ -16,8 +18,25 @@ class UserService extends Base {
          * @member {Boolean} singleton=true
          * @protected
          */
-        singleton: true
+        singleton: true,
+        /**
+         * @member {Neo.data.Store} store_=UserStore
+         */
+        store_: UserStore
     }}
+
+    /**
+     * Triggered before the store config gets changed.
+     * @param {Neo.data.Store|null} value
+     * @param {Neo.data.Store|null} oldValue
+     * @returns {Neo.data.Store}
+     * @protected
+     */
+    beforeSetStore(value, oldValue) {
+        oldValue?.destroy();
+
+        return ClassSystemUtil.beforeSetInstance(value);
+    }
 
     /**
      *
