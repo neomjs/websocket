@@ -26,10 +26,10 @@ class MainContainer extends Viewport {
                 handler: 'onUserServiceReadButtonClick'
             }]
         }, {
-            module   : UserTableContainer,
-            flex     : 1,
-            reference: 'user-table',
-            style    : {marginTop: '20px'}
+            module      : UserTableContainer,
+            flex        : 1,
+            reference   : 'user-table',
+            wrapperStyle: {marginTop: '20px', maxHeight: '300px'}
         }]
     }}
 }
