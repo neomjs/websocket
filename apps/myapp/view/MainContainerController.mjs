@@ -48,6 +48,7 @@ class MainContainerController extends ComponentController {
             service: 'UserService'
         }).then(response => {
             console.log(response);
+            this.getReference('user-table').store.add(response.data);
         })
     }
 
@@ -58,6 +59,7 @@ class MainContainerController extends ComponentController {
     onUserServiceGetAllButtonClick(data) {
         MyApp.backend.UserService.getAll().then(response => {
             console.log(response);
+            this.getReference('user-table').store.add(response.data);
         })
     }
 }

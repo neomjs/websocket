@@ -16,8 +16,9 @@ class MainContainer extends Viewport {
         layout    : {ntype: 'vbox', align: 'stretch'},
 
         items: [{
-            module: UserTableContainer,
-            style : {flex: 'none', margin: '20px'}
+            module   : UserTableContainer,
+            reference: 'user-table',
+            style    : {flex: 'none', margin: '20px'}
         }, {
             ntype: 'toolbar',
             style: {margin: '20px'},
