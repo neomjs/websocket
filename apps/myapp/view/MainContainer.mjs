@@ -34,7 +34,7 @@ class MainContainer extends Viewport {
             ntype: 'toolbar',
             flex : 'none',
             items: [{
-                handler: 'onSendWsMessageButtonClick',
+                handler: 'onFirstPageButtonClick',
                 iconCls: 'fa fa-angles-left'
             }, {
                 handler: 'onPrevPageButtonClick',

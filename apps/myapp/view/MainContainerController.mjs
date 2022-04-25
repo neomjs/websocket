@@ -52,6 +52,17 @@ class MainContainerController extends ComponentController {
     /**
      * @param {Object} data
      */
+    onFirstPageButtonClick(data) {
+        let me = this;
+
+        me.currentPage = 1;
+
+        me.loadPage(me.currentPage);
+    }
+
+    /**
+     * @param {Object} data
+     */
     onNextPageButtonClick(data) {
         let me = this;
 
