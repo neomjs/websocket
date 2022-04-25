@@ -16,7 +16,11 @@ class MainContainerController extends ComponentController {
          * @member {String} className='MyApp.view.MainContainerController'
          * @protected
          */
-        className: 'MyApp.view.MainContainerController'
+        className: 'MyApp.view.MainContainerController',
+        /**
+         * @member {Number} currentPage=1
+         */
+        currentPage: 1
     }}
 
     /**
@@ -34,6 +38,19 @@ class MainContainerController extends ComponentController {
         this.connection = Neo.create(SocketConnection, {
             serverAddress: 'ws://localhost:3001'
         });
+    }
+
+    /**
+     * @param {Object} data
+     */
+    onNextPageButtonClick(data) {
+        let me = this;
+
+        me.currentPage++;
+
+        MyApp.backend.UserService.read({page: me.currentPage}).then(response => {
+            this.getReference('user-table').store.data = response.data;
+        })
     }
 
     /**

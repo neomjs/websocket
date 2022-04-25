@@ -25,7 +25,7 @@ class Users extends Store {
          */
         sorters: [{
             direction: 'ASC',
-            property : 'firstname'
+            property : 'id'
         }]
     }}
 }

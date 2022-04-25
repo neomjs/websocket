@@ -18,18 +18,37 @@ class MainContainer extends Viewport {
             ntype: 'toolbar',
             flex : 'none',
             items: [{
-                text   : 'Send WS message',
-                handler: 'onSendWsMessageButtonClick'
+                handler: 'onSendWsMessageButtonClick',
+                text   : 'Send WS message'
             }, {
+                handler: 'onUserServiceReadButtonClick',
                 style  : {marginLeft: '10px'},
-                text   : 'UserService.read',
-                handler: 'onUserServiceReadButtonClick'
+                text   : 'UserService.read'
             }]
         }, {
             module      : UserTableContainer,
             flex        : 1,
             reference   : 'user-table',
             wrapperStyle: {marginTop: '20px', maxHeight: '300px'}
+        }, {
+            ntype: 'toolbar',
+            flex : 'none',
+            items: [{
+                handler: 'onSendWsMessageButtonClick',
+                iconCls: 'fa fa-angles-left'
+            }, {
+                handler: 'onSendWsMessageButtonClick',
+                iconCls: 'fa fa-angle-left',
+                style  : {marginLeft: '10px'}
+            }, {
+                handler: 'onNextPageButtonClick',
+                iconCls: 'fa fa-angle-right',
+                style  : {marginLeft: '10px'}
+            }, {
+                handler: 'onSendWsMessageButtonClick',
+                iconCls: 'fa fa-angles-right',
+                style  : {marginLeft: '10px'}
+            }]
         }]
     }}
 }

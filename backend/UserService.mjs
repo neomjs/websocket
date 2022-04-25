@@ -67,7 +67,14 @@ class UserService extends Base {
      * @returns {Object[]}
      */
     read(opts) {
-        return this.store.getRange(0, 30);
+        let start =  0,
+            limit = 30;
+
+        if (opts?.page) {
+            start = (opts.page - 1) * limit;
+        }
+
+        return this.store.getRange(start, start + limit);
     }
 
     /**
