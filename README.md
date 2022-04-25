@@ -1,6 +1,8 @@
-# Websocket based table including paging based on a RPC layer
+# WebSocket driven table based on an RPC layer
 
 FE & BE code (in progress)
+
+including paging
 
 Based on https://github.com/neomjs/neo
 
