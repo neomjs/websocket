@@ -13,14 +13,9 @@ class Users extends Store {
          */
         className: 'MyApp.store.Users',
         /**
-         * @member {Object} api
+         * @member {Object|String|null} api
          */
-        api: {
-            create : 'MyApp.backend.UserService.create',
-            destroy: 'MyApp.backend.UserService.destroy',
-            read   : 'MyApp.backend.UserService.read',
-            update : 'MyApp.backend.UserService.update'
-        },
+        api: 'MyApp.backend.UserService',
         /**
          * @member {Boolean} autoLoad=true
          */
