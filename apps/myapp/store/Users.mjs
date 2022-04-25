@@ -15,7 +15,14 @@ class Users extends Store {
         /**
          * @member {Neo.data.Model} model=UserModel
          */
-        model: UserModel
+        model: UserModel,
+        /**
+         * @member {Object[]} sorters
+         */
+        sorters: [{
+            direction: 'ASC',
+            property : 'firstname'
+        }]
     }}
 }
 
