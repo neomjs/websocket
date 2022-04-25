@@ -54,6 +54,21 @@ class MainContainerController extends ComponentController {
     }
 
     /**
+     * @param {Object} data
+     */
+    onPrevPageButtonClick(data) {
+        let me = this;
+
+        if (me.currentPage > 1) {
+            me.currentPage--;
+        }
+
+        MyApp.backend.UserService.read({page: me.currentPage}).then(response => {
+            this.getReference('user-table').store.data = response.data;
+        })
+    }
+
+    /**
      * Sending messages through a WebSocket inside the app worker
      * @param {Object} data
      */

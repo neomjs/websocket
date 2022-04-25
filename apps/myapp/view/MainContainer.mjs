@@ -37,7 +37,7 @@ class MainContainer extends Viewport {
                 handler: 'onSendWsMessageButtonClick',
                 iconCls: 'fa fa-angles-left'
             }, {
-                handler: 'onSendWsMessageButtonClick',
+                handler: 'onPrevPageButtonClick',
                 iconCls: 'fa fa-angle-left',
                 style  : {marginLeft: '10px'}
             }, {
@@ -45,9 +45,10 @@ class MainContainer extends Viewport {
                 iconCls: 'fa fa-angle-right',
                 style  : {marginLeft: '10px'}
             }, {
-                handler: 'onSendWsMessageButtonClick',
-                iconCls: 'fa fa-angles-right',
-                style  : {marginLeft: '10px'}
+                disabled: true,
+                handler : 'onSendWsMessageButtonClick',
+                iconCls : 'fa fa-angles-right',
+                style   : {marginLeft: '10px'}
             }]
         }]
     }}
