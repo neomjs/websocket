@@ -22,6 +22,10 @@ class Users extends Store {
             update : 'MyApp.backend.UserService.update'
         },
         /**
+         * @member {Boolean} autoLoad=true
+         */
+        autoLoad: true,
+        /**
          * @member {Neo.data.Model} model=UserModel
          */
         model: UserModel,
