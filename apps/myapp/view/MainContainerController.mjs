@@ -56,20 +56,20 @@ class MainContainerController extends ComponentController {
     /**
      * @param {Object} data
      */
-    async onAddUserButtonClick(data) {
+    onAddUserButtonClick(data) {
         let me = this;
 
         if (!me.addUserDialog) {
-            let module = await import('./AddUserDialog.mjs');
-
-            me.addUserDialog = Neo.create(module.default, {
-                animateTargetId: data.component.id,
-                appName        : me.component.appName,
-                closeAction    : 'hide'
+            import('./AddUserDialog.mjs').then(module => {
+                me.addUserDialog = Neo.create(module.default, {
+                    animateTargetId: data.component.id,
+                    appName        : me.component.appName,
+                    closeAction    : 'hide'
+                });
             });
+        } else {
+            me.addUserDialog.show();
         }
-
-        me.addUserDialog.show();
     }
 
     /**
