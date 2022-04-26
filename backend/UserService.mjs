@@ -58,7 +58,7 @@ class UserService extends Base {
      * todo
      * @returns {Object}
      */
-    delete() {
+    destroy() {
         return {success: false};
     }
 
