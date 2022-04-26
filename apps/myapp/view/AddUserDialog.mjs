@@ -21,6 +21,17 @@ class AddUserDialog extends Dialog {
             }
         },
         /**
+         * @member {Object[]} headers
+         */
+        headers: [{
+            cls  : ['neo-footer-toolbar', 'neo-toolbar'],
+            dock : 'bottom',
+            items: ['->', {
+                ntype: 'button',
+                text : 'Submit'
+            }]
+        }],
+        /**
          * @member {Object[]} items
          */
         items: [{
