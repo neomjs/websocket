@@ -27,8 +27,7 @@ class AddUserDialog extends Dialog {
             cls  : ['neo-footer-toolbar', 'neo-toolbar'],
             dock : 'bottom',
             items: ['->', {
-                ntype: 'button',
-                text : 'Submit'
+                text: 'Submit'
             }]
         }],
         /**
@@ -45,6 +44,10 @@ class AddUserDialog extends Dialog {
             labelText : 'Lastname:',
             labelWidth: 110
         }],
+        /**
+         * @member {Boolean} resizable=false
+         */
+        resizable: false,
         /**
          * @member {String} title='Edit User'
          */
