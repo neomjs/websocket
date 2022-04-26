@@ -1,4 +1,5 @@
-import Dialog from '../../../node_modules/neo.mjs/src/dialog/Base.mjs';
+import Dialog    from '../../../node_modules/neo.mjs/src/dialog/Base.mjs';
+import TextField from '../../../node_modules/neo.mjs/src/form/field/Text.mjs';
 
 /**
  * @class MyApp.view.AddUserDialog
@@ -11,6 +12,28 @@ class AddUserDialog extends Dialog {
          * @protected
          */
         className: 'MyApp.view.AddUserDialog',
+        /**
+         * @member {Object} containerConfig={style:{padding:'1em'}}
+         */
+        containerConfig: {
+            style: {
+                padding: '1em'
+            }
+        },
+        /**
+         * @member {Object[]} items
+         */
+        items: [{
+            module    : TextField,
+            flex      : 'none',
+            labelText : 'Firstname:',
+            labelWidth: 110
+        }, {
+            module    : TextField,
+            flex      : 'none',
+            labelText : 'Lastname:',
+            labelWidth: 110
+        }],
         /**
          * @member {String} title='Edit User'
          */
