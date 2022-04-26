@@ -19,7 +19,7 @@
     "dependencies": {
         "express": "^4.17.3",
         "fs-extra": "^10.1.0",
-        "neo.mjs": "^4.0.13",
+        "neo.mjs": "^4.0.14",
         "ws": "^8.5.0"
     }
 }
