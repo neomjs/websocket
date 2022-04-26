@@ -6,9 +6,22 @@ import Dialog from '../../../node_modules/neo.mjs/src/dialog/Base.mjs';
  */
 class AddUserDialog extends Dialog {
     static getConfig() {return {
-        className : 'MyApp.view.AddUserDialog',
-        height    : 400,
-        width     : 300
+        /**
+         * @member {String} className='MyApp.view.AddUserDialog'
+         * @protected
+         */
+        className: 'MyApp.view.AddUserDialog',
+        /**
+         * @member {String} title='Edit User'
+         */
+        title: 'Add User',
+        /**
+         * @member {Object} wrapperStyle={height:'300px',width:'400px'}
+         */
+        wrapperStyle: {
+            height: '300px',
+            width : '400px'
+        }
     }}
 }
 

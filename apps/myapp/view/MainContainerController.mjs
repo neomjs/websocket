@@ -7,20 +7,24 @@ import SocketConnection    from '../../../node_modules/neo.mjs/src/data/connecti
  */
 class MainContainerController extends ComponentController {
     /**
+     * @member {MyApp.view.AddUserDialog|null} addUserDialog=null
+     */
+    addUserDialog = null
+    /**
      * @member {Neo.data.connection.WebSocket|null} connection=null
      */
     connection = null
+    /**
+     * @member {Number} currentPage=1
+     */
+    currentPage = 1
 
     static getConfig() {return {
         /**
          * @member {String} className='MyApp.view.MainContainerController'
          * @protected
          */
-        className: 'MyApp.view.MainContainerController',
-        /**
-         * @member {Number} currentPage=1
-         */
-        currentPage: 1
+        className: 'MyApp.view.MainContainerController'
     }}
 
     /**
@@ -52,8 +56,20 @@ class MainContainerController extends ComponentController {
     /**
      * @param {Object} data
      */
-    onAddUserButtonClick(data) {
-        console.log('onAddUserButtonClick');
+    async onAddUserButtonClick(data) {
+        let me = this;
+
+        if (!me.addUserDialog) {
+            let module = await import('./AddUserDialog.mjs');
+
+            me.addUserDialog = Neo.create(module.default, {
+                animateTargetId: data.component.id,
+                appName        : me.component.appName,
+                closeAction    : 'hide'
+            });
+        }
+
+        me.addUserDialog.show();
     }
 
     /**
