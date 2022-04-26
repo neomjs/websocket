@@ -24,6 +24,10 @@ class MainContainer extends Viewport {
                 handler: 'onUserServiceReadButtonClick',
                 style  : {marginLeft: '10px'},
                 text   : 'UserService.read'
+            }, '->', {
+                handler: 'onAddUserButtonClick',
+                iconCls: 'fa fa-circle-plus',
+                text   : 'Add User'
             }]
         }, {
             module      : UserTableContainer,

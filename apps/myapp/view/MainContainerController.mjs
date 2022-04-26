@@ -52,6 +52,13 @@ class MainContainerController extends ComponentController {
     /**
      * @param {Object} data
      */
+    onAddUserButtonClick(data) {
+        console.log('onAddUserButtonClick');
+    }
+
+    /**
+     * @param {Object} data
+     */
     onFirstPageButtonClick(data) {
         let me = this;
 
