@@ -78,7 +78,7 @@ class UserService extends Base {
         return {
             data      : store.getRange(start, start + limit),
             success   : true,
-            totalCount: store.items.length
+            totalCount: store.getCount()
         };
     }
 
