@@ -20,16 +20,10 @@ wsServer.on('connection', socket => {
         if (parsedMessage.mId) {
             reply = {
                 mId : parsedMessage.mId,
-                data: {
-                    data   : replyData,
-                    success: true
-                }
+                data: replyData
             };
         } else {
-            reply = {
-                data   : replyData,
-                success: true
-            };
+            reply = replyData;
         }
 
         socket.send(JSON.stringify(reply));
