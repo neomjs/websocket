@@ -71,9 +71,7 @@ class UserService extends Base {
             limit = opts?.pageSize || 30,
             start = opts?.page ? ((opts.page - 1) * limit) : 0;
 
-        if (opts.sorters) {
-            store.sorters = opts.sorters;
-        }
+        store.sorters = opts.sorters || [{direction: 'ASC', property: 'id'}];
 
         return {
             data      : store.getRange(start, start + limit),
