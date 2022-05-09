@@ -1,6 +1,7 @@
 import Neo                 from 'neo.mjs/src/Neo.mjs';
 import * as core           from 'neo.mjs/src/core/_export.mjs';
 import express             from 'express';
+import Instance            from 'neo.mjs/src/manager/Instance.mjs';
 import UserService         from './UserService.mjs';
 import { WebSocketServer } from 'ws';
 

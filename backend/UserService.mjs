@@ -71,6 +71,8 @@ class UserService extends Base {
             limit = opts?.pageSize || 30,
             start = opts?.page ? ((opts.page - 1) * limit) : 0;
 
+        store.filters = opts.filters || [];
+
         store.sorters = opts.sorters || [{direction: 'ASC', property: 'id'}];
 
         return {
